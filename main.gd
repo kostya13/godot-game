@@ -2,10 +2,10 @@ extends Node2D
 
 export(PackedScene) var bullet_scene
 
-var fire_direction = {'front':  Vector2(0,100),
-					  'back': Vector2(0,-100),
-					  'left': Vector2(-100, 0),
-					  'right': Vector2(100 ,0)}
+var fire_direction = {'front':  Vector2(0,10),
+					  'back': Vector2(0,-10),
+					  'left': Vector2(-10, 0),
+					  'right': Vector2(10 ,0)}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

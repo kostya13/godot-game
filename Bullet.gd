@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends Area2D
 
 var direction = null
 # Declare member variables here. Examples:
@@ -14,4 +14,10 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if direction:
-		move_and_slide(direction)
+		position += direction
+
+
+func _on_Area2D_body_entered(body):
+	if body.is_in_group("wall"):
+		#body.queue_free()
+		queue_free()
