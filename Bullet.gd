@@ -1,17 +1,10 @@
 extends Area2D
 
+signal hit
+
 var direction = null
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+# warning-ignore:unused_argument
 func _process(delta):
 	if direction:
 		position += direction
@@ -19,5 +12,8 @@ func _process(delta):
 
 func _on_Area2D_body_entered(body):
 	if body.is_in_group("wall"):
-		#body.queue_free()
+		queue_free()
+	elif body.is_in_group("enemy"):
+		emit_signal("hit")
+		body.queue_free()
 		queue_free()
